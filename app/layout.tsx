@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import Providers from "./Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +23,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} font-sans antialiased h-full`}
       >
-        {/* 
-          Next.js automatically slots the correct layout here.
-          - If URL is /login, it renders AuthLayout.
-          - If URL is / (the homepage), it renders MainAppLayout.
-        */}
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
